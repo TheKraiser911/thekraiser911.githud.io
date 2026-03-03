@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Xenayra Web Launcher | Download</title>
+    <title>Xeneyra Web Launcher | Versions</title>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; font-family: 'Rajdhani', sans-serif; }
@@ -28,7 +28,7 @@
             border-radius: 8px;
         }
 
-        .main-area { display: flex; flex-grow: 1; height: 80%; }
+        .main-area { display: flex; flex-grow: 1; height: 100%; }
 
         .news-box {
             flex: 1; 
@@ -41,14 +41,41 @@
             box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
         }
 
+        /* Estilo para cada tarjeta de versión */
+        .version-card {
+            background: #f9f9f9;
+            border-left: 5px solid #3498db;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .version-card h2 { margin: 0; color: #2980b9; font-size: 1.5rem; }
+        .version-date { color: #888; font-size: 0.9rem; font-weight: bold; margin-bottom: 10px; }
+        
+        .download-inline {
+            display: inline-block;
+            margin-top: 15px;
+            background: #27ae60;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .download-inline:hover { background: #2ecc71; transform: scale(1.02); }
+
         .sidebar { 
-            width: 200px; 
+            width: 220px; 
             background: #2980b9; 
             display: flex; 
             flex-direction: column; 
             align-items: center; 
             padding: 20px 0;
             border-top-right-radius: 6px;
+            border-bottom-right-radius: 6px;
         }
 
         .side-link { 
@@ -65,149 +92,55 @@
         }
         .side-link:hover { background: #34495e; transform: scale(1.05); }
 
-        .bottom-bar { 
-            height: 120px; 
-            background: #0011ff; 
-            display: flex; 
-            align-items: center; 
-            padding: 0 40px; 
-            gap: 25px;
-            border-bottom-left-radius: 6px;
-            border-bottom-right-radius: 6px;
-        }
-
-        .input-group { display: flex; flex-direction: column; }
-        .input-group label { font-size: 13px; font-weight: bold; color: #fff; margin-bottom: 5px; }
-        
-        input, .version-select { 
-            padding: 10px; 
-            border: none; 
-            border-radius: 4px; 
-            width: 200px; 
-            font-weight: bold;
-            background: white;
-            color: #2c3e50;
-        }
-
-        /* Botón estilo Kraiser Projects */
-        .btn-download {
-            background: #f1c40f; 
-            color: #000; 
-            padding: 18px 45px; 
-            border: none;
-            font-size: 22px; 
-            font-weight: 800; 
-            cursor: pointer; 
-            border-radius: 6px;
-            margin-left: auto; 
-            text-decoration: none;
-            box-shadow: 0 5px 0 #d4ac0d;
-            transition: 0.2s;
-            text-align: center;
-        }
-        .btn-download:hover { 
-            background: #f39c12; 
-            transform: translateY(-2px);
-            box-shadow: 0 7px 0 #d4ac0d;
-        }
+        .news-box::-webkit-scrollbar { width: 8px; }
+        .news-box::-webkit-scrollbar-thumb { background: #3498db; border-radius: 10px; }
     </style>
 </head>
 <body>
 
     <div class="launcher-window">
         <div class="main-area">
-            <div class="news-box">
-                <h1 id="title" style="margin-top:0; color: #2980b9; font-size: 2rem;">Prototype Xeneyra</h1>
-                <p id="date-text" style="color: #888; font-weight: bold;">Versión: Alpha | Fecha: 03/03/2026</p>
+            <div class="news-box" id="content-area">
+                <h1 style="margin-top:0; color: #2c3e50;">Historial de Versiones - Xeneyra</h1>
                 <hr>
-                <div id="desc-container" style="line-height: 1.6; font-size: 1.1rem; color: #444;"></div>
+                
+                <div class="version-card">
+                    <h2>Prototype The Xeneyra Beta V0.0.2</h2>
+                    <div class="version-date">Fecha: 03/03/2026</div>
+                    <p><b>Novedades:</b></p>
+                    <ul style="font-size: 0.95rem; line-height: 1.4;">
+                        <li>Nuevo HUD y sonidos agregados.</li>
+                        <li>Nuevas armas: Puño y Patada (Tecla "Q").</li>
+                        <li>Cambio de arma con la tecla "E".</li>
+                        <li><b>Fatalitys:</b> Dos versiones (Con y sin máscara).</li>
+                        <li>Nuevo modelo oficial de Zombie Común.</li>
+                        <li>Mapa extendido con iluminación mejorada.</li>
+                    </ul>
+                    <a href="https://www.mediafire.com/file/7nuccm2lqrm1ef2/Prototype_The_Xeneyra_Beta_V0.0.2.rar/file" target="_blank" class="download-inline">DESCARGAR V0.0.2 (.RAR)</a>
+                </div>
+
+                <div class="version-card">
+                    <h2>Prototype The Xeneyra Beta V0.0.1</h2>
+                    <div class="version-date">Fecha: 25/02/2026</div>
+                    <p>Primera versión Beta. Mapa de pruebas básico, funciones esenciales de movimiento, dos variantes de zombies y pistola básica.</p>
+                    <a href="https://www.mediafire.com/file/zj721om11wr5ubw/Prototype_The_Xeneyra_Beta_V0.0.1.rar/file" target="_blank" class="download-inline" style="background: #7f8c8d;">DESCARGAR V0.0.1 (.RAR)</a>
+                </div>
+
             </div>
 
             <div class="sidebar">
-                <span style="font-weight: bold; margin-bottom: 20px; letter-spacing: 2px;">SOCIAL</span>
+                <span style="font-weight: bold; margin-bottom: 20px; letter-spacing: 2px;">KRAISER PROJECTS</span>
                 <a href="https://youtube.com/@thekraiser911animator" target="_blank" class="side-link">YOUTUBE</a>
                 <a href="https://www.tiktok.com/@leonardopazb" target="_blank" class="side-link">TIKTOK</a>
                 <a href="https://discord.gg/X2JySkFwxU" target="_blank" class="side-link">DISCORD</a>
                 
-                <select class="lang-select" id="langSelector" onchange="updateLanguage()" style="margin-top:auto; width:85%; padding:10px; border-radius:5px;">
-                    <option value="es">Español</option>
-                    <option value="en">English</option>
-                </select>
-                <p style="font-size: 10px; margin-top: 10px;">Kraiser Projects © 2026</p>
+                <div style="margin-top: auto; text-align: center; padding-bottom: 20px;">
+                    <p style="font-size: 12px;">El futuro de Xeneyra está en tus manos.</p>
+                    <p style="font-size: 10px;">© 2026 Kraiser Projects</p>
+                </div>
             </div>
-        </div>
-
-        <div class="bottom-bar">
-            <div class="input-group">
-                <label id="lbl-user">USUARIO:</label>
-                <input type="text" id="username" placeholder="Tu nombre...">
-            </div>
-            
-            <div class="input-group">
-                <label id="lbl-ver">VERSIÓN:</label>
-                <select id="versionSelector" class="version-select" onchange="updateVersion()">
-                    <option value="0.0.1">V.0.0.1 Alpha</option>
-                    <option value="0.0.2">V.0.0.2 Alpha (NUEVA)</option>
-                </select>
-            </div>
-
-            <a href="#" target="_blank" class="btn-download" id="btn-text">
-                DESCARGAR LINK
-            </a>
         </div>
     </div>
 
-    <script>
-        // AQUÍ PEGA TUS LINKS DE MEDIAFIRE/DRIVE
-        const versionLinks = {
-            "0.0.1": {
-                url: "TU_LINK_DE_DESCARGA_V1_AQUI", // Ejemplo: https://www.mediafire.com/file/...
-                date: "25/02/2026",
-                news: "Primera versión Beta. Sistema de salud de 900+ y mapa de pruebas básico, con funciones basica de movimiento de jugador y dos variante de Zombies, y pistola."
-            },
-            "0.0.2": {
-                url: "https://www.mediafire.com/file/7nuccm2lqrm1ef2/Prototype_The_Xeneyra_Beta_V0.0.2.rar/file.", // Pega aquí el nuevo link de la 0.0.2
-                date: "03/03/2026",
-                news: "Nuevo Hud, Sonidos agregados, Armas como el puño y patada con "Q", funcion de cambiar arma con la tecla "E", Fatalitys dos versiones 1) Donde protagonista llamada xereyna tiene mascara y el 2) donde no tiene mascara, modificamos la pistola, Nuevo modelo oficial de Zombie Clasico o pues Zombie comun, iluminacion al mapa, mapa un poco mas extendido."
-            }
-        };
-
-        function updateVersion() {
-            const v = document.getElementById('versionSelector').value;
-            const downloadBtn = document.getElementById('btn-text');
-            const dateLabel = document.getElementById('date-text');
-            const desc = document.getElementById('desc-container');
-
-            // Actualiza link, fecha y descripción pequeña
-            downloadBtn.href = versionLinks[v].url;
-            dateLabel.innerText = `Versión: Alpha | Fecha: ${versionLinks[v].date}`;
-            
-            // Si quieres que la noticia cambie según la versión
-            document.getElementById('title').innerText = "Prototype Xenayra V." + v;
-        }
-
-        function updateLanguage() {
-            const lang = document.getElementById('langSelector').value;
-            const desc = document.getElementById('desc-container');
-            
-            if(lang === "es") {
-                document.getElementById('lbl-user').innerText = "USUARIO:";
-                document.getElementById('lbl-ver').innerText = "VERSIÓN:";
-                document.getElementById('btn-text').innerText = "IR AL LINK";
-                desc.innerHTML = `Esta versión cuenta con mecánicas de salud infinita (botiquín especial), interactuables con la tecla E y zombies clásicos. 
-                <br><br><i>Kraiser Projects: El futuro de Xeneyra está en tus manos.</i>`;
-            } else {
-                document.getElementById('lbl-user').innerText = "USERNAME:";
-                document.getElementById('lbl-ver').innerText = "VERSION:";
-                document.getElementById('btn-text').innerText = "OPEN LINK";
-                desc.innerHTML = `This version features infinite health mechanics (special medkit), E-key interactions, and classic zombies.`;
-            }
-        }
-
-        // Ejecutar al cargar
-        updateLanguage();
-        updateVersion();
-    </script>
 </body>
 </html>
-
