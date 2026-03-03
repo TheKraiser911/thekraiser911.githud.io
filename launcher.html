@@ -89,6 +89,7 @@
             color: #2c3e50;
         }
 
+        /* Botón estilo Kraiser Projects */
         .btn-download {
             background: #f1c40f; 
             color: #000; 
@@ -109,20 +110,6 @@
             transform: translateY(-2px);
             box-shadow: 0 7px 0 #d4ac0d;
         }
-        .btn-download:active {
-            transform: translateY(2px);
-            box-shadow: 0 2px 0 #d4ac0d;
-        }
-
-        .lang-select {
-            margin-top: auto;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #1a3a5a;
-            background: #fff;
-            cursor: pointer;
-            width: 85%;
-        }
     </style>
 </head>
 <body>
@@ -130,8 +117,8 @@
     <div class="launcher-window">
         <div class="main-area">
             <div class="news-box">
-                <h1 id="title" style="margin-top:0; color: #2980b9; font-size: 2rem;">Prototype Xenayra</h1>
-                <p id="date-text" style="color: #888; font-weight: bold;">Versión: Alpha | Fecha: 25/02/2026</p>
+                <h1 id="title" style="margin-top:0; color: #2980b9; font-size: 2rem;">Prototype Xeneyra</h1>
+                <p id="date-text" style="color: #888; font-weight: bold;">Versión: Alpha | Fecha: 03/03/2026</p>
                 <hr>
                 <div id="desc-container" style="line-height: 1.6; font-size: 1.1rem; color: #444;"></div>
             </div>
@@ -142,7 +129,7 @@
                 <a href="https://www.tiktok.com/@leonardopazb" target="_blank" class="side-link">TIKTOK</a>
                 <a href="https://discord.gg/X2JySkFwxU" target="_blank" class="side-link">DISCORD</a>
                 
-                <select class="lang-select" id="langSelector" onchange="updateLanguage()">
+                <select class="lang-select" id="langSelector" onchange="updateLanguage()" style="margin-top:auto; width:85%; padding:10px; border-radius:5px;">
                     <option value="es">Español</option>
                     <option value="en">English</option>
                 </select>
@@ -153,56 +140,35 @@
         <div class="bottom-bar">
             <div class="input-group">
                 <label id="lbl-user">USUARIO:</label>
-                <input type="text" id="username" placeholder="Escribe tu nombre...">
+                <input type="text" id="username" placeholder="Tu nombre...">
             </div>
             
             <div class="input-group">
                 <label id="lbl-ver">VERSIÓN:</label>
                 <select id="versionSelector" class="version-select" onchange="updateVersion()">
                     <option value="0.0.1">V.0.0.1 Alpha</option>
-                    <option value="0.0.2">V.0.0.2 Alpha</option>
+                    <option value="0.0.2">V.0.0.2 Alpha (NUEVA)</option>
                 </select>
             </div>
 
-            <a href="Xenayra/Prototype_Xenayra_Alpha_V.0.0.1.rar" download class="btn-download" id="btn-text">
-                DESCARGAR .RAR
+            <a href="#" target="_blank" class="btn-download" id="btn-text">
+                DESCARGAR LINK
             </a>
         </div>
     </div>
 
     <script>
-        // Configuración de archivos por versión
-        const versions = {
+        // AQUÍ PEGA TUS LINKS DE MEDIAFIRE/DRIVE
+        const versionLinks = {
             "0.0.1": {
-                file: "Xenayra/Prototype_Xenayra_Alpha_V.0.0.1.rar",
-                date: "25/02/2026"
+                url: "TU_LINK_DE_DESCARGA_V1_AQUI", // Ejemplo: https://www.mediafire.com/file/...
+                date: "25/02/2026",
+                news: "Primera versión Beta. Sistema de salud de 900+ y mapa de pruebas básico, con funciones basica de movimiento de jugador y dos variante de Zombies, y pistola."
             },
             "0.0.2": {
-                file: "Xenayra/Prototype_The_Xeneyra_Beta_V0.0.2.rar",
-                date: "03/03/2026" // Fecha de ejemplo
-            }
-        };
-
-        const content = {
-            es: {
-                title: "Prototype Xenayra",
-                user: "USUARIO:",
-                ver: "VERSIÓN:",
-                btn: "DESCARGAR .RAR",
-                desc: `Esta versión del juego cuenta con un mapa de pruebas. He programado el movimiento básico: caminar, saltar y correr. 
-                <br><br><b>Mecánicas:</b> Puedes interactuar con barriles, cajas, armas, munición y botiquines. 
-                <br><b>Salud Infinita:</b> He creado un botiquín especial que rompe el límite de salud permitiendo subir hasta la infinidad.
-                <br><b>Contenido:</b> Incluye una pistola, sistema de escaleras, puertas funcionales y spawners de enemigos (zombie clásico).`
-            },
-            en: {
-                title: "Prototype Xenayra",
-                user: "USERNAME:",
-                ver: "VERSION:",
-                btn: "DOWNLOAD .RAR",
-                desc: `This version features a test map. I've programmed basic movement: walking, jumping, and running. 
-                <br><br><b>Mechanics:</b> Interaction with barrels, boxes, weapons, ammo, and medkits. 
-                <br><b>Infinite Health:</b> Special medkit breaks the health limit, scaling to infinity.
-                <br><b>Content:</b> Includes a pistol, ladder system, functional doors, and enemy spawners (classic zombie).`
+                url: "https://www.mediafire.com/file/7nuccm2lqrm1ef2/Prototype_The_Xeneyra_Beta_V0.0.2.rar/file", // Pega aquí el nuevo link de la 0.0.2
+                date: "03/03/2026",
+                news: "Nuevo Hud, Sonidos agregados, Armas como el puño y patada con "Q", funcion de cambiar arma con la tecla "E", Fatalitys dos versiones 1) Donde protagonista llamada xereyna tiene mascara y el 2) donde no tiene mascara, modificamos la pistola, Nuevo modelo oficial de Zombie Clasico o pues Zombie comun, iluminacion al mapa, mapa un poco mas extendido."
             }
         };
 
@@ -210,32 +176,37 @@
             const v = document.getElementById('versionSelector').value;
             const downloadBtn = document.getElementById('btn-text');
             const dateLabel = document.getElementById('date-text');
+            const desc = document.getElementById('desc-container');
 
-            // Actualiza el link de descarga y la fecha
-            downloadBtn.href = versions[v].file;
-            dateLabel.innerText = `Versión: Alpha | Fecha: ${versions[v].date}`;
+            // Actualiza link, fecha y descripción pequeña
+            downloadBtn.href = versionLinks[v].url;
+            dateLabel.innerText = `Versión: Alpha | Fecha: ${versionLinks[v].date}`;
             
-            console.log("Cambiado a versión: " + v);
+            // Si quieres que la noticia cambie según la versión
+            document.getElementById('title').innerText = "Prototype Xenayra V." + v;
         }
 
         function updateLanguage() {
             const lang = document.getElementById('langSelector').value;
-            const data = content[lang] || content['en'];
+            const desc = document.getElementById('desc-container');
             
-            document.getElementById('title').innerText = data.title + " " + document.getElementById('versionSelector').value;
-            document.getElementById('lbl-user').innerText = data.user;
-            document.getElementById('lbl-ver').innerText = data.ver;
-            document.getElementById('btn-text').innerText = data.btn;
-            document.getElementById('desc-container').innerHTML = data.desc;
+            if(lang === "es") {
+                document.getElementById('lbl-user').innerText = "USUARIO:";
+                document.getElementById('lbl-ver').innerText = "VERSIÓN:";
+                document.getElementById('btn-text').innerText = "IR AL LINK";
+                desc.innerHTML = `Esta versión cuenta con mecánicas de salud infinita (botiquín especial), interactuables con la tecla E y zombies clásicos. 
+                <br><br><i>Kraiser Projects: El futuro de Xeneyra está en tus manos.</i>`;
+            } else {
+                document.getElementById('lbl-user').innerText = "USERNAME:";
+                document.getElementById('lbl-ver').innerText = "VERSION:";
+                document.getElementById('btn-text').innerText = "OPEN LINK";
+                desc.innerHTML = `This version features infinite health mechanics (special medkit), E-key interactions, and classic zombies.`;
+            }
         }
 
-        // Inicializar
+        // Ejecutar al cargar
         updateLanguage();
         updateVersion();
     </script>
 </body>
 </html>
-</body>
-
-</html>
-
